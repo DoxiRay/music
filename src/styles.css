@@ -1,0 +1,240 @@
+body {
+  background: linear-gradient(135deg, #ff9eb8, #ffe3e9);
+  font-family: "Poppins", sans-serif;
+}
+
+.container {
+  display: flex;
+  flex-direction: column; /* Pour que les éléments soient empilés verticalement */
+  align-items: center; /* Centre horizontalement */
+  justify-content: center; /* Centre verticalement si tu veux */
+  min-height: 100vh; /* Prend toute la hauteur de l'écran */
+  text-align: center; /* Centre le texte */
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.title {
+  font-size: 2rem;
+  margin-bottom: 25px;
+  font-weight: 700;
+  color: #d6287b;
+}
+
+/* GRID DES PLAYLISTS — PAR DÉFAUT HORIZONTAL */
+.playlist-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 25px;
+  padding: 20px;
+  max-width: 900px;
+  margin: auto;
+}
+
+/* CARDS */
+.playlist-card {
+  position: relative;
+  padding: 40px 20px;
+  border-radius: 25px;
+  background: white;
+  cursor: pointer;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+}
+
+.playlist-card:hover {
+  transform: translateY(-6px) scale(1.03);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.playlist-bg {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, #ff78a5, #ffc8d8);
+  opacity: 0.25;
+  z-index: 0;
+}
+
+.playlist-card h3 {
+  position: relative;
+  z-index: 1;
+  font-size: 22px;
+  margin-bottom: 10px;
+  color: #b31561;
+}
+
+.playlist-card p {
+  position: relative;
+  z-index: 1;
+  font-size: 15px;
+  color: #55314e;
+}
+
+/* BOUTON BACK */
+.back-btn {
+  padding: 10px 20px;
+  background: #ff6fa5;
+  border: none;
+  color: white;
+  border-radius: 12px;
+  cursor: pointer;
+  margin-bottom: 15px;
+  font-size: 16px;
+}
+
+.back-btn:hover {
+  background: #ff3e82;
+}
+
+.playlist-title {
+  font-size: 26px;
+  color: #b31561;
+  margin-bottom: 20px;
+}
+
+/* 📱 RESPONSIVE : ÉCRAN PETIT = CARDS DE BAS EN HAUT */
+@media (max-width: 650px) {
+  .playlist-grid {
+    grid-template-columns: 1fr; /* devient vertical */
+  }
+
+  .playlist-card {
+    margin-bottom: 15px;
+  }
+}
+
+/* LISTE TITRE */
+.music-title {
+  text-align: center;
+  font-size: 26px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #c2185b;
+}
+
+/* CONTAINER */
+.music-list-wrapper {
+  margin-top: 20px;
+}
+
+/* LISTE MUSIQUES */
+.music-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* 🎵 CARD MODERNE + ROMANTIQUE */
+.music-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(255, 255, 255, 0.45);
+  backdrop-filter: blur(12px);
+  border-radius: 18px;
+  padding: 15px 20px;
+  cursor: pointer;
+  transition: 0.3s;
+  border: 1px solid rgba(255, 168, 196, 0.3);
+  box-shadow: 0 6px 15px rgba(255, 109, 145, 0.15);
+}
+
+.music-card:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 10px 25px rgba(255, 109, 145, 0.22);
+  background: rgba(255, 245, 250, 0.65);
+}
+
+/* ICÔNE MUSIQUE */
+.music-icon {
+  font-size: 24px;
+}
+
+/* INFO */
+.music-info h3 {
+  margin: 0;
+  font-size: 18px;
+  color: #ad1457;
+  font-weight: 600;
+}
+
+.music-info p {
+  margin: 0;
+  font-size: 13px;
+  color: #6b2a44;
+}
+
+/* COEUR */
+.music-heart {
+  font-size: 22px;
+  color: #e91e63;
+  transition: 0.2s;
+}
+
+.music-card:hover .music-heart {
+  transform: scale(1.2);
+}
+
+/* PLAYER GLOBAL */
+.modern-player {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  max-width: 500px;
+  padding: 15px 20px;
+  background: rgba(255, 255, 255, 0.55);
+  backdrop-filter: blur(12px);
+  border-radius: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 10px 25px rgba(255, 113, 163, 0.25);
+  border: 1px solid rgba(255, 168, 196, 0.5);
+  animation: fadeUp 0.4s ease;
+}
+
+/* FADE ANIMATION */
+@keyframes fadeUp {
+  from {
+    transform: translate(-50%, 20px);
+    opacity: 0;
+  }
+  to {
+    transform: translate(-50%, 0px);
+    opacity: 1;
+  }
+}
+
+.player-card {
+  background: linear-gradient(135deg, #ff9aa2, #ffb7b2);
+  padding: 20px;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(255, 120, 150, 0.3);
+  color: #fff;
+  max-width: 350px;
+  margin: 20px auto;
+}
+
+.music-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.control-btn {
+  background: white;
+  border: none;
+  padding: 12px 18px;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(255, 90, 120, 0.4);
+}
+
+.control-btn .material-icons {
+  font-size: 32px;
+  color: #ff6678;
+}
