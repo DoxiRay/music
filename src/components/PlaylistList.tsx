@@ -1,4 +1,3 @@
-import React from "react";
 import type { Playlist } from "../App";
 
 interface Props {
