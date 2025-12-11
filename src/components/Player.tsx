@@ -1,3 +1,4 @@
+import { useEffect, useRef, useState } from "react";
 import type { Music } from "../App";
 
 interface Props {
